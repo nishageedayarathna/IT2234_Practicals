@@ -1,5 +1,6 @@
 # IT2234_Practicals
-Web Services and Server Technologies - Practical Sessions
+
+Check all the readme files inside the folders
 
 
 
