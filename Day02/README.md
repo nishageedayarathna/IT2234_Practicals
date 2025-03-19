@@ -34,9 +34,13 @@ Reverse the array using push and pop.
 (08)JSON-->JSON.js
 
 01/Define 10 students JSON
+
 02/Store it in an Array
+
 03/Find the female students
+
 04/Find the students who are following IT course
+
 05/Find the max and average GPA among the students
 
 <img width="470" alt="JSON1" src="https://github.com/user-attachments/assets/316941f5-74a9-4be5-9e16-0abb645963d3" />
