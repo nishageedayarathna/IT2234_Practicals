@@ -2,7 +2,7 @@
 
 Running the server.
 
-<img width="736" alt="server running" src="https://github.com/user-attachments/assets/8cd6d41c-28bc-4f0b-907b-3aaae9dd9129" />
+<img width="708" alt="server" src="https://github.com/user-attachments/assets/1b7c6f99-d48c-40cb-9b96-2c8762ae68be" />
 
 (01)Get all students details.
 
