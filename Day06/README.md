@@ -1,176 +1,80 @@
-# MATLAB Code Repository
+(01) asynpro.js
 
-This repository contains various MATLAB scripts demonstrating basic mathematical operations, matrix manipulations, and control structures such as loops and conditionals.
+fs.readFile(...) --> Starts reading the file (asynchronously).
 
-## Requirements
-- MATLAB application is required to run these scripts.
+console.log("File reading is done...")	--> Runs immediately after the read starts.
 
-## Included MATLAB Scripts
+console.log(data) -->	Runs later, after file is successfully read.
 
-### 1. Basic Arithmetic Operations
-```matlab
-% Define variables
-a = 5;
-b = 10;
+console.error(err) -->	Runs if there's a problem reading the file.
 
-% Addition
-c = a + b;
-% Multiplication
-d = a * b;
-% Division
-e = a / b;
-% Subtraction
-f = a - b;
-```
-**Output:**
-```
-c = 15
-d = 50
-e = 0.5000
-f = -5
-```
+![filereading(1)](https://github.com/user-attachments/assets/a0a36a07-02b2-47f0-bf2c-8dba57119b8d)
 
-### 2. Matrix Creation and Operations
-```matlab
-% Define Matrices
-A = [1 2 3];
-B = [4;5;6];
-C = [2 3 4;5 6 7;8 9 10];
+(02)promise.js
 
-% Size of matrix
-size_C = size(C);
-% Sum of matrix elements
-sum_C = sum(sum(C));
-% Column-wise and row-wise sums
-col_sum = sum(C,1);
-row_sum = sum(C,2);
-```
-**Output:**
-```
-size_C = [3 3]
-sum_C = 54
-col_sum = [15 18 21]
-row_sum = [9; 18; 27]
-```
+1. const fs = require('fs').promises;
+   
+This imports the Promise-based version of Node.js's File System (fs) module.
 
-### 3. Finding Min and Max Elements
-```matlab
-% Column-wise minimum
-min_col = min(C);
-% Minimum of whole matrix
-min_all = min(min(C));
-% Column-wise maximum
-max_col = max(C);
-% Maximum of whole matrix
-max_all = max(max(C));
-```
-**Output:**
-```
-min_col = [2 3 4]
-min_all = 2
-max_col = [8 9 10]
-max_all = 10
-```
+Now you can use fs.readFile() which returns a Promise, instead of using a callback.
 
-### 4. Accessing Matrix Elements
-```matlab
-% Accessing specific elements
-second_element = C(2);
-first_row = C(1,:);
-first_column = C(:,1);
-last_element_first_row = C(1,end);
-```
-**Output:**
-```
-second_element = 5
-first_row = [2 3 4]
-first_column = [2; 5; 8]
-last_element_first_row = 4
-```
+2. const readFile = (filepath) => { ... }
+   
+This is a function that takes a file path as input (filepath).
 
-### 5. Matrix Addition, Subtraction, and Multiplication
-```matlab
-A = [1 2 3 4;5 6 7 8;9 10 11 12;13 14 15 16];
-B = A; % Duplicate matrix
+However, it does not use that parameter.
 
-% Element-wise Addition and Subtraction
-sum_matrix = A + B;
-diff_matrix = A - B;
+It always reads from 'file1.txt' (hardcoded), not the input file.
 
-% Matrix Multiplication
-prod_matrix = A * B;
-```
-**Output:**
-```
-sum_matrix =
-  2  4  6  8
- 10 12 14 16
- 18 20 22 24
- 26 28 30 32
+3. return fs.readFile('file1.txt', 'utf8');
+   
+This line starts reading 'file1.txt' in UTF-8 encoding.
 
-diff_matrix =
-  0  0  0  0
-  0  0  0  0
-  0  0  0  0
-  0  0  0  0
+It returns a Promise, which will:
 
-prod_matrix =
-  90  100  110  120
- 202  228  254  280
- 314  356  398  440
- 426  484  542  600
-```
+resolve with the file content if successful,
 
-### 6. Conditional Statements
-```matlab
-num = 4;
-if num > 0
-    disp('The Number Is Positive')
-else
-    disp('The Number Is Negative')
-end
-```
-**Output:**
-```
-The Number Is Positive
-```
+or reject with an error if it fails.
 
-### 7. Checking Odd or Even Number
-```matlab
-if mod(num,2) == 0
-    disp('The Number Is Even')
-else
-    disp('The Number Is Odd')
-end
-```
-**Output:**
-```
-The Number Is Even
-```
+4. readFile('file.txt')...
+   
+You call readFile() with 'file.txt', but again — it still reads 'file1.txt' because of the hardcoded path.
 
-### 8. While Loop: Printing Numbers 1 to 5
-```matlab
-a = 1;
-while a <= 5
-    disp (a)
-    a = a + 1;
-end
-```
-**Output:**
-```
-1
-2
-3
-4
-5
-```
+6. .then((data) => { console.log(data); })
+   
+If the file is read successfully, it logs the file content.
 
-## How to Run the Scripts
-1. Open MATLAB.
-2. Copy and paste the desired script into the MATLAB command window or save it as a `.m` file and run it.
-3. Observe the output in the command window.
+8. .catch((err) => { console.error(err); })
+   
+If there's an error (e.g. file not found), it catches and logs the error message.
 
-## Conclusion
-These MATLAB scripts demonstrate fundamental concepts such as arithmetic operations, matrix manipulation, conditional statements, and loops. They serve as an excellent introduction to MATLAB programming.
+This .catch() is useful especially when dealing with multiple asynchronous file reads, since all errors can be handled in one place.
+
+![promise(2)](https://github.com/user-attachments/assets/1602888d-7a5b-4dc2-8853-0612762c9355)
+
+![promise(3)](https://github.com/user-attachments/assets/70fb9341-d086-44d2-89c9-55ae4b762e98)
+
+(03)asynawait.js
+
+async/await	--> Makes asynchronous code look more like regular sync code.
+
+fs.promises.readFile -->	Reads a file and returns a promise with its content.
+
+Promise.allSettled -->	Waits for all promises to settle (succeed or fail), without short-circuiting on errors.
+
+result.status -->	Tells if the promise was fulfilled or rejected.
+
+result.value / result.reason -->	Contains the result (file content) or the error (why it failed).
+
+![assynawait(4)](https://github.com/user-attachments/assets/988c64d6-f698-41eb-9d7a-f5baee125208)
+
+![assynawait(5)](https://github.com/user-attachments/assets/898bdacd-1ba0-4cd4-bce7-9b13cefe1f33)
+
+![6](https://github.com/user-attachments/assets/b99ea91b-e1a2-47ca-ba3e-bfa640d7dac0)
+
+![7](https://github.com/user-attachments/assets/7da506c5-1cdd-47ab-b226-3835ddc94cd7)
+
+
+
 
 
