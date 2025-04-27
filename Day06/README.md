@@ -40,11 +40,11 @@ or reject with an error if it fails.
    
 You call readFile() with 'file.txt', but again — it still reads 'file1.txt' because of the hardcoded path.
 
-6. .then((data) => { console.log(data); })
+5. .then((data) => { console.log(data); })
    
 If the file is read successfully, it logs the file content.
 
-8. .catch((err) => { console.error(err); })
+6. .catch((err) => { console.error(err); })
    
 If there's an error (e.g. file not found), it catches and logs the error message.
 
