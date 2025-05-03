@@ -1,0 +1,539 @@
+(01)create a database bookshop
+(02)create a collection books
+(03)insert the following data
+{
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "published_year": 1937,
+  "genres": ["Fantasy", "Adventure"],
+  "pages": 310,
+  "available": true,
+  "rating": 4.8
+}
+
+  {
+    "title": "1984",
+    "author": "George Orwell",
+    "published_year": 1949,
+    "genres": ["Dystopian", "Political Fiction"],
+    "pages": 328,
+    "available": true,
+    "rating": 4.7
+  },
+  {
+    "title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "published_year": 1960,
+    "genres": ["Southern Gothic", "Drama"],
+    "pages": 281,
+    "available": false,
+    "rating": 4.6
+  },
+  {
+    "title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "published_year": 1925,
+    "genres": ["Tragedy"],
+    "pages": 180,
+    "available": true,
+    "rating": 4.4
+  },
+  {
+    "title": "Brave New World",
+    "author": "Aldous Huxley",
+    "published_year": 1932,
+    "genres": ["Science Fiction", "Dystopian"],
+    "pages": 311,
+    "available": true,
+    "rating": 4.2
+  }
+  
+Query:
+db.books.insertMany(
+[
+{
+"title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "published_year": 1937,
+  "genres": ["Fantasy", "Adventure"],
+  "pages": 310,
+  "available": true,
+  "rating": 4.8
+},
+{
+"title": "1984",
+    "author": "George Orwell",
+    "published_year": 1949,
+    "genres": ["Dystopian", "Political Fiction"],
+    "pages": 328,
+    "available": true,
+    "rating": 4.7
+},
+{
+"title": "To Kill a Mockingbird",
+    "author": "Harper Lee",
+    "published_year": 1960,
+    "genres": ["Southern Gothic", "Drama"],
+    "pages": 281,
+    "available": false,
+    "rating": 4.6
+},
+{
+"title": "The Great Gatsby",
+    "author": "F. Scott Fitzgerald",
+    "published_year": 1925,
+    "genres": ["Tragedy"],
+    "pages": 180,
+    "available": true,
+    "rating": 4.4
+},
+{
+"title": "Brave New World",
+    "author": "Aldous Huxley",
+    "published_year": 1932,
+    "genres": ["Science Fiction", "Dystopian"],
+    "pages": 311,
+    "available": true,
+    "rating": 4.2
+}])
+
+Output:
+
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('68165655e07cf9082228e0d6'),
+    '1': ObjectId('68165656e07cf9082228e0d7'),
+    '2': ObjectId('68165656e07cf9082228e0d8'),
+    '3': ObjectId('68165656e07cf9082228e0d9'),
+    '4': ObjectId('68165656e07cf9082228e0da')
+  }
+
+(04)Find all books
+
+Query:
+db.books.find()
+
+Output:
+
+{
+  _id: ObjectId('680ef923da72305655b4714e'),
+  title: 'The Hobbit',
+  author: 'J.R.R. Tolkien',
+  published_year: 1937,
+  genres: [
+    'Fantasy',
+    'Adventure'
+  ],
+  pages: 310,
+  available: true,
+  rating: 4.8
+}
+
+{
+  _id: ObjectId('680ef923da72305655b4714f'),
+  title: '1984',
+  author: 'George Orwell',
+  published_year: 1949,
+  genres: [
+    'Dystopian',
+    'Political Fiction'
+  ],
+  pages: 328,
+  available: true,
+  rating: 4.7
+}
+
+{
+  _id: ObjectId('680ef923da72305655b47150'),
+  title: 'To Kill a Mockingbird',
+  author: 'Harper Lee',
+  published_year: 1960,
+  genres: [
+    'Southern Gothic',
+    'Drama'
+  ],
+  pages: 281,
+  available: false,
+  rating: 4.6
+}
+
+{
+  _id: ObjectId('680ef923da72305655b47151'),
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  published_year: 1925,
+  genres: [
+    'Tragedy'
+  ],
+  pages: 180,
+  available: true,
+  rating: 4.4
+}
+
+{
+  _id: ObjectId('680ef923da72305655b47152'),
+  title: 'Brave New World',
+  author: 'Aldous Huxley',
+  published_year: 1932,
+  genres: [
+    'Science Fiction',
+    'Dystopian'
+  ],
+  pages: 311,
+  available: true,
+  rating: 4.2
+}
+
+(05)Find all books published after 1950
+
+Query:
+db.books.find({published_year:{$gt:1950}})
+
+Output:
+
+{
+  _id: ObjectId('680ef923da72305655b47150'),
+  title: 'To Kill a Mockingbird',
+  author: 'Harper Lee',
+  published_year: 1960,
+  genres: [
+    'Southern Gothic',
+    'Drama'
+  ],
+  pages: 281,
+  available: false,
+  rating: 4.6
+}
+
+
+(06)Find the avilable books
+
+Query:
+db.books.find({available:true})
+
+Output:
+
+{
+  _id: ObjectId('680ef923da72305655b4714e'),
+  title: 'The Hobbit',
+  author: 'J.R.R. Tolkien',
+  published_year: 1937,
+  genres: [
+    'Fantasy',
+    'Adventure'
+  ],
+  pages: 310,
+  available: true,
+  rating: 4.8
+}
+
+{
+  _id: ObjectId('680ef923da72305655b4714f'),
+  title: '1984',
+  author: 'George Orwell',
+  published_year: 1949,
+  genres: [
+    'Dystopian',
+    'Political Fiction'
+  ],
+  pages: 328,
+  available: true,
+  rating: 4.7
+}
+
+{
+  _id: ObjectId('680ef923da72305655b47151'),
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  published_year: 1925,
+  genres: [
+    'Tragedy'
+  ],
+  pages: 180,
+  available: true,
+  rating: 4.4
+}
+
+{
+  _id: ObjectId('680ef923da72305655b47151'),
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  published_year: 1925,
+  genres: [
+    'Tragedy'
+  ],
+  pages: 180,
+  available: true,
+  rating: 4.4
+}
+
+(07)Find all books that belong to the "Dystopian" genre
+
+Query:
+db.books.find({genres:"Dystopian"})
+
+Output:
+{
+  _id: ObjectId('680ef923da72305655b4714f'),
+  title: '1984',
+  author: 'George Orwell',
+  published_year: 1949,
+  genres: [
+    'Dystopian',
+    'Political Fiction'
+  ],
+  pages: 328,
+  available: true,
+  rating: 4.7
+}
+
+{
+  _id: ObjectId('680ef923da72305655b47152'),
+  title: 'Brave New World',
+  author: 'Aldous Huxley',
+  published_year: 1932,
+  genres: [
+    'Science Fiction',
+    'Dystopian'
+  ],
+  pages: 311,
+  available: true,
+  rating: 4.2
+}
+
+(08)Find the books which published after 1960 and had rating more than 4.0
+
+Query:
+db.books.find({ published_year: { $gt: 1960 }, rating: { $gt: 4.0 } })
+
+
+(09)Project only title and author fields:
+
+Query:
+db.books.find({}, { title: 1, author: 1, _id: 0 })
+
+Output:
+{
+  title: 'The Hobbit',
+  author: 'J.R.R. Tolkien'
+}
+{
+  title: '1984',
+  author: 'George Orwell'
+}
+{
+  title: 'To Kill a Mockingbird',
+  author: 'Harper Lee'
+}
+{
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald'
+}
+{
+  title: 'Brave New World',
+  author: 'Aldous Huxley'
+}
+
+(10)Update the book "1984" to set available: false:
+
+Query:
+db.books.updateOne({ title: "1984" }, { $set: { available: false } })
+
+Output:
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+(11)Increase the rating of "Brave New World" by +0.1:
+
+Query:
+db.books.updateOne({ title: "Brave New World" }, { $inc: { rating: 0.1 } })
+
+
+Output:
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+(12)Add a new genre "Classic" to "The Great Gatsby":
+
+Query:
+db.books.updateOne(
+  { title: "The Great Gatsby" },
+  { $addToSet: { genres: "Classic" } }
+)
+
+Output:
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+
+(13)Sort books by published_year ascending:
+
+Query:
+db.books.find().sort({ published_year: 1 })
+
+Output:
+{
+  _id: ObjectId('68165656e07cf9082228e0d9'),
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  published_year: 1925,
+  genres: [
+    'Tragedy',
+    'Classic'
+  ],
+  pages: 180,
+  available: true,
+  rating: 4.4
+}
+{
+  _id: ObjectId('68165656e07cf9082228e0da'),
+  title: 'Brave New World',
+  author: 'Aldous Huxley',
+  published_year: 1932,
+  genres: [
+    'Science Fiction',
+    'Dystopian'
+  ],
+  pages: 311,
+  available: true,
+  rating: 4.3
+}
+{
+  _id: ObjectId('68165655e07cf9082228e0d6'),
+  title: 'The Hobbit',
+  author: 'J.R.R. Tolkien',
+  published_year: 1937,
+  genres: [
+    'Fantasy',
+    'Adventure'
+  ],
+  pages: 310,
+  available: true,
+  rating: 4.8
+}
+{
+  _id: ObjectId('68165656e07cf9082228e0d7'),
+  title: '1984',
+  author: 'George Orwell',
+  published_year: 1949,
+  genres: [
+    'Dystopian',
+    'Political Fiction'
+  ],
+  pages: 328,
+  available: false,
+  rating: 4.7
+}
+{
+  _id: ObjectId('68165656e07cf9082228e0d8'),
+  title: 'To Kill a Mockingbird',
+  author: 'Harper Lee',
+  published_year: 1960,
+  genres: [
+    'Southern Gothic',
+    'Drama'
+  ],
+  pages: 281,
+  available: false,
+  rating: 4.6
+}
+
+(14)Sort books by rating descending:
+
+Query:
+db.books.find().sort({ rating: -1 })
+
+Output:
+{
+  _id: ObjectId('68165655e07cf9082228e0d6'),
+  title: 'The Hobbit',
+  author: 'J.R.R. Tolkien',
+  published_year: 1937,
+  genres: [
+    'Fantasy',
+    'Adventure'
+  ],
+  pages: 310,
+  available: true,
+  rating: 4.8
+}
+{
+  _id: ObjectId('68165656e07cf9082228e0d7'),
+  title: '1984',
+  author: 'George Orwell',
+  published_year: 1949,
+  genres: [
+    'Dystopian',
+    'Political Fiction'
+  ],
+  pages: 328,
+  available: false,
+  rating: 4.7
+}
+{
+  _id: ObjectId('68165656e07cf9082228e0d8'),
+  title: 'To Kill a Mockingbird',
+  author: 'Harper Lee',
+  published_year: 1960,
+  genres: [
+    'Southern Gothic',
+    'Drama'
+  ],
+  pages: 281,
+  available: false,
+  rating: 4.6
+}
+{
+  _id: ObjectId('68165656e07cf9082228e0d9'),
+  title: 'The Great Gatsby',
+  author: 'F. Scott Fitzgerald',
+  published_year: 1925,
+  genres: [
+    'Tragedy',
+    'Classic'
+  ],
+  pages: 180,
+  available: true,
+  rating: 4.4
+}
+{
+  _id: ObjectId('68165656e07cf9082228e0da'),
+  title: 'Brave New World',
+  author: 'Aldous Huxley',
+  published_year: 1932,
+  genres: [
+    'Science Fiction',
+    'Dystopian'
+  ],
+  pages: 311,
+  available: true,
+  rating: 4.3
+}
+
+(15)Delete all books with a rating lower than 4.5:
+
+Query:
+db.books.deleteMany({ rating: { $lt: 4.5 } })
+
+Output:
+{
+  acknowledged: true,
+  deletedCount: 2
+}
+
+ 

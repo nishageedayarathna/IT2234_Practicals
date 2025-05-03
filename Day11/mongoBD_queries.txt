@@ -1,0 +1,72 @@
+(01)
+//drop a database that is already in databases
+db.dropDatabase()
+
+(02)
+//drop a collection that is already in a database.
+//if there is one collection also deleted the database.
+db.sampledata.drop()
+
+(03)
+//delete one data from collection.
+db.degrees.deleteOne({_id:ObjectId('680ee9301c9eb70824659110')})
+
+(04)
+//get the name and the duration with _id
+db.degrees.find().projection(['name','duration'])
+
+(05)
+//get only the name of degree with _id
+db.degrees.find().projection(['name'])
+
+(06)
+//get only the object_id.
+db.degrees.find().projection([{'name':1},{'_id':-1}])
+
+(07)
+//get the name of the degree
+db.degrees.find({},{name:1,_id:0}).pretty()
+
+(08)
+//delete many degrees that the duration is less than 4
+db.degrees.deleteMany({duration:{$lt:4}})
+
+db.degrees.find({},{name:1,_id:0}).pretty()
+
+(09)
+//update one data
+
+db.degrees.updateOne({_id:ObjectId('680eef2e1c9eb70824659115')},{$set:{name:'BIT',duration:3}})
+
+db.degrees.updateOne(
+  {_id: ObjectId('680eef2e1c9eb70824659115')}, 
+  {$set: {name: 'BIT', duration: 3}}
+)
+
+db.degrees.findOne({_id: ObjectId('680eef2e1c9eb70824659115')})
+
+(10)
+//update many data
+//$inc --> increase the duration from 1
+//$gte -->greater than or equal
+
+//increase the duration from one which is the duration is greater than or equal 4.
+
+db.degrees.updateMany({duration:{$gte:4}},{$inc:{duration:1}})
+
+db.degrees.find({},{name:1,duration:1})
+
+(11)
+//Update the skills--> add one skill for skills 
+//$push --> Add a skill to skills array
+
+
+db.students.updateOne({regno:"2021ICT75"},{$push:{skills:"PHP"}})
+
+db.students.findOne({regno:"2021ICT75"})
+
+
+
+
+
+
