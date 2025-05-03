@@ -1,176 +1,48 @@
-# MATLAB Code Repository
+# Lecture Time Activity Queries. --> mongoDB_queries.txt
 
-This repository contains various MATLAB scripts demonstrating basic mathematical operations, matrix manipulations, and control structures such as loops and conditionals.
+(01)drop a database that is already in databases.
 
-## Requirements
-- MATLAB application is required to run these scripts.
+![1_dropdatabase](https://github.com/user-attachments/assets/6054286e-60de-4799-bc02-a42cbab57176)
 
-## Included MATLAB Scripts
+(02)drop a collection that is already in a database.
 
-### 1. Basic Arithmetic Operations
-```matlab
-% Define variables
-a = 5;
-b = 10;
+![2_dropcollection](https://github.com/user-attachments/assets/212c551e-a0ac-45fa-9021-0141aa4c2f0f)
 
-% Addition
-c = a + b;
-% Multiplication
-d = a * b;
-% Division
-e = a / b;
-% Subtraction
-f = a - b;
-```
-**Output:**
-```
-c = 15
-d = 50
-e = 0.5000
-f = -5
-```
+(03)delete one data from collection.
 
-### 2. Matrix Creation and Operations
-```matlab
-% Define Matrices
-A = [1 2 3];
-B = [4;5;6];
-C = [2 3 4;5 6 7;8 9 10];
+![3_deleteOne](https://github.com/user-attachments/assets/1563fa17-4031-4fa7-98c5-e5e770a59a58)
 
-% Size of matrix
-size_C = size(C);
-% Sum of matrix elements
-sum_C = sum(sum(C));
-% Column-wise and row-wise sums
-col_sum = sum(C,1);
-row_sum = sum(C,2);
-```
-**Output:**
-```
-size_C = [3 3]
-sum_C = 54
-col_sum = [15 18 21]
-row_sum = [9; 18; 27]
-```
+(04)get the name and the duration with _id.
 
-### 3. Finding Min and Max Elements
-```matlab
-% Column-wise minimum
-min_col = min(C);
-% Minimum of whole matrix
-min_all = min(min(C));
-% Column-wise maximum
-max_col = max(C);
-% Maximum of whole matrix
-max_all = max(max(C));
-```
-**Output:**
-```
-min_col = [2 3 4]
-min_all = 2
-max_col = [8 9 10]
-max_all = 10
-```
+![4_findProjection](https://github.com/user-attachments/assets/54744bd2-a02c-4b62-a7e9-d166d250c9ce)
 
-### 4. Accessing Matrix Elements
-```matlab
-% Accessing specific elements
-second_element = C(2);
-first_row = C(1,:);
-first_column = C(:,1);
-last_element_first_row = C(1,end);
-```
-**Output:**
-```
-second_element = 5
-first_row = [2 3 4]
-first_column = [2; 5; 8]
-last_element_first_row = 4
-```
+(05)get only the name of degree with _id.
 
-### 5. Matrix Addition, Subtraction, and Multiplication
-```matlab
-A = [1 2 3 4;5 6 7 8;9 10 11 12;13 14 15 16];
-B = A; % Duplicate matrix
+![5_findProjectionName](https://github.com/user-attachments/assets/2d417fcc-c097-4f9d-a0f4-369ce11f9515)
 
-% Element-wise Addition and Subtraction
-sum_matrix = A + B;
-diff_matrix = A - B;
+(06)get only the object_id.
 
-% Matrix Multiplication
-prod_matrix = A * B;
-```
-**Output:**
-```
-sum_matrix =
-  2  4  6  8
- 10 12 14 16
- 18 20 22 24
- 26 28 30 32
+![6](https://github.com/user-attachments/assets/bcd1fad0-be27-4eaf-9e65-8befd31ed40e)
 
-diff_matrix =
-  0  0  0  0
-  0  0  0  0
-  0  0  0  0
-  0  0  0  0
+(07)get the name of the degree.
 
-prod_matrix =
-  90  100  110  120
- 202  228  254  280
- 314  356  398  440
- 426  484  542  600
-```
+![7](https://github.com/user-attachments/assets/08d23056-d408-4232-8e12-08c6fef61a1a)
 
-### 6. Conditional Statements
-```matlab
-num = 4;
-if num > 0
-    disp('The Number Is Positive')
-else
-    disp('The Number Is Negative')
-end
-```
-**Output:**
-```
-The Number Is Positive
-```
+(08)delete many degrees that the duration is less than 4.
 
-### 7. Checking Odd or Even Number
-```matlab
-if mod(num,2) == 0
-    disp('The Number Is Even')
-else
-    disp('The Number Is Odd')
-end
-```
-**Output:**
-```
-The Number Is Even
-```
+![8](https://github.com/user-attachments/assets/51f347ec-bf98-4176-a8fa-7ef3d8de1f05)
 
-### 8. While Loop: Printing Numbers 1 to 5
-```matlab
-a = 1;
-while a <= 5
-    disp (a)
-    a = a + 1;
-end
-```
-**Output:**
-```
-1
-2
-3
-4
-5
-```
+(09)update one data.
 
-## How to Run the Scripts
-1. Open MATLAB.
-2. Copy and paste the desired script into the MATLAB command window or save it as a `.m` file and run it.
-3. Observe the output in the command window.
+![9](https://github.com/user-attachments/assets/ae556468-df88-4c60-abfd-4a218ee4e570)
 
-## Conclusion
-These MATLAB scripts demonstrate fundamental concepts such as arithmetic operations, matrix manipulation, conditional statements, and loops. They serve as an excellent introduction to MATLAB programming.
+(10)update many data.
+
+![10](https://github.com/user-attachments/assets/e7e1e311-25c5-4b66-8fdc-c88d7742c769)
+
+(11)Update the skills--> add one skill for skills -->$push --> Add a skill to skills array.
+
+![11](https://github.com/user-attachments/assets/2ca27c9b-1d74-4cf2-9d9c-2960f72b24f9)
+
 
 
