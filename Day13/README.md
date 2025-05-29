@@ -24,7 +24,7 @@ npm start in terminal
 
 # step 04 :
 
-change the "scripts" in package-json to "starts":{"node index.js"}
+change the "scripts" in package-json to "start":{"nodemon index.js"}
 
 # step 05 :
 
