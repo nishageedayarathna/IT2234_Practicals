@@ -1,176 +1,70 @@
-# MATLAB Code Repository
+# Student App
 
-This repository contains various MATLAB scripts demonstrating basic mathematical operations, matrix manipulations, and control structures such as loops and conditionals.
+# POST method
 
-## Requirements
-- MATLAB application is required to run these scripts.
+(01)To post a data 
 
-## Included MATLAB Scripts
+code :
 
-### 1. Basic Arithmetic Operations
-```matlab
-% Define variables
-a = 5;
-b = 10;
+![1 post_code](https://github.com/user-attachments/assets/e654c912-6c7e-4486-a7a9-edab952276d7)
 
-% Addition
-c = a + b;
-% Multiplication
-d = a * b;
-% Division
-e = a / b;
-% Subtraction
-f = a - b;
-```
-**Output:**
-```
-c = 15
-d = 50
-e = 0.5000
-f = -5
-```
+set requirement to the fields.
 
-### 2. Matrix Creation and Operations
-```matlab
-% Define Matrices
-A = [1 2 3];
-B = [4;5;6];
-C = [2 3 4;5 6 7;8 9 10];
+![1_2require_true](https://github.com/user-attachments/assets/75fe8d6c-7cc2-449c-9924-1a1611b6828a)
 
-% Size of matrix
-size_C = size(C);
-% Sum of matrix elements
-sum_C = sum(sum(C));
-% Column-wise and row-wise sums
-col_sum = sum(C,1);
-row_sum = sum(C,2);
-```
-**Output:**
-```
-size_C = [3 3]
-sum_C = 54
-col_sum = [15 18 21]
-row_sum = [9; 18; 27]
-```
+data post in postman.
 
-### 3. Finding Min and Max Elements
-```matlab
-% Column-wise minimum
-min_col = min(C);
-% Minimum of whole matrix
-min_all = min(min(C));
-% Column-wise maximum
-max_col = max(C);
-% Maximum of whole matrix
-max_all = max(max(C));
-```
-**Output:**
-```
-min_col = [2 3 4]
-min_all = 2
-max_col = [8 9 10]
-max_all = 10
-```
+![1_3post_data](https://github.com/user-attachments/assets/c7520a28-357b-4beb-b9a6-66f2b85e4902)
 
-### 4. Accessing Matrix Elements
-```matlab
-% Accessing specific elements
-second_element = C(2);
-first_row = C(1,:);
-first_column = C(:,1);
-last_element_first_row = C(1,end);
-```
-**Output:**
-```
-second_element = 5
-first_row = [2 3 4]
-first_column = [2; 5; 8]
-last_element_first_row = 4
-```
+# PUT method
 
-### 5. Matrix Addition, Subtraction, and Multiplication
-```matlab
-A = [1 2 3 4;5 6 7 8;9 10 11 12;13 14 15 16];
-B = A; % Duplicate matrix
+(02)Update a data.
 
-% Element-wise Addition and Subtraction
-sum_matrix = A + B;
-diff_matrix = A - B;
+code :
 
-% Matrix Multiplication
-prod_matrix = A * B;
-```
-**Output:**
-```
-sum_matrix =
-  2  4  6  8
- 10 12 14 16
- 18 20 22 24
- 26 28 30 32
+![2 update_code](https://github.com/user-attachments/assets/7ad90161-8a46-4231-aa56-7421106b5b55)
 
-diff_matrix =
-  0  0  0  0
-  0  0  0  0
-  0  0  0  0
-  0  0  0  0
+add below to courseRoute.js
 
-prod_matrix =
-  90  100  110  120
- 202  228  254  280
- 314  356  398  440
- 426  484  542  600
-```
+![2 updated_code(insert courseRote js)](https://github.com/user-attachments/assets/caf1c5aa-0f45-43b3-851b-7afe16dd23d9)
 
-### 6. Conditional Statements
-```matlab
-num = 4;
-if num > 0
-    disp('The Number Is Positive')
-else
-    disp('The Number Is Negative')
-end
-```
-**Output:**
-```
-The Number Is Positive
-```
+updated data
 
-### 7. Checking Odd or Even Number
-```matlab
-if mod(num,2) == 0
-    disp('The Number Is Even')
-else
-    disp('The Number Is Odd')
-end
-```
-**Output:**
-```
-The Number Is Even
-```
+![2_2update_data](https://github.com/user-attachments/assets/da4d5f74-d6c7-4e7a-90e3-32d718c98b0f)
 
-### 8. While Loop: Printing Numbers 1 to 5
-```matlab
-a = 1;
-while a <= 5
-    disp (a)
-    a = a + 1;
-end
-```
-**Output:**
-```
-1
-2
-3
-4
-5
-```
+![2_3updated](https://github.com/user-attachments/assets/654e0e9a-8fb1-4227-a99e-e9a1ba167403)
 
-## How to Run the Scripts
-1. Open MATLAB.
-2. Copy and paste the desired script into the MATLAB command window or save it as a `.m` file and run it.
-3. Observe the output in the command window.
+# DELETE method
 
-## Conclusion
-These MATLAB scripts demonstrate fundamental concepts such as arithmetic operations, matrix manipulation, conditional statements, and loops. They serve as an excellent introduction to MATLAB programming.
+(03) delete a data
+
+code :
+
+![3 delete_code](https://github.com/user-attachments/assets/772ac386-0b44-4128-b5ed-d1c8325db915)
+
+![3_delete_data](https://github.com/user-attachments/assets/dfe7afe3-dfd9-4ee3-9484-45ef21b6fa1f)
+
+After deletion:
+
+![3_afterDeletion](https://github.com/user-attachments/assets/72a10b34-46e8-46e7-b41f-28db542a56a2)
+
+# GET method
+
+(04)degree data
+
+![4_2degree_data](https://github.com/user-attachments/assets/2d9d7339-0eea-47b3-8c8e-14a1236aa076)
+
+(05)student data
+
+![5_student](https://github.com/user-attachments/assets/4f71f512-d093-4ab6-b03c-bc39dec32f9c)
+
+
+
+
+
+
+
+
+
 
 
