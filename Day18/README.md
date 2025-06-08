@@ -1,176 +1,44 @@
-# MATLAB Code Repository
+## 1. Create an endpoint to retrieve all data from the User, Project, and Task collections. 
+Implement this task with code reusability.
 
-This repository contains various MATLAB scripts demonstrating basic mathematical operations, matrix manipulations, and control structures such as loops and conditionals.
+services-->getall.js
 
-## Requirements
-- MATLAB application is required to run these scripts.
+<img width="960" alt="Q1_1" src="https://github.com/user-attachments/assets/aae03431-7a20-4963-b309-e5a1035c3869" />
 
-## Included MATLAB Scripts
+add to all routes like below
 
-### 1. Basic Arithmetic Operations
-```matlab
-% Define variables
-a = 5;
-b = 10;
+<img width="297" alt="Q1_2" src="https://github.com/user-attachments/assets/dfccaf82-b38c-4cbc-a80e-c4db73c9744c" />
 
-% Addition
-c = a + b;
-% Multiplication
-d = a * b;
-% Division
-e = a / b;
-% Subtraction
-f = a - b;
-```
-**Output:**
-```
-c = 15
-d = 50
-e = 0.5000
-f = -5
-```
+Outputs:
 
-### 2. Matrix Creation and Operations
-```matlab
-% Define Matrices
-A = [1 2 3];
-B = [4;5;6];
-C = [2 3 4;5 6 7;8 9 10];
+<img width="674" alt="3 users" src="https://github.com/user-attachments/assets/809452db-c42e-4d8c-8cd0-edd118fe6662" />
 
-% Size of matrix
-size_C = size(C);
-% Sum of matrix elements
-sum_C = sum(sum(C));
-% Column-wise and row-wise sums
-col_sum = sum(C,1);
-row_sum = sum(C,2);
-```
-**Output:**
-```
-size_C = [3 3]
-sum_C = 54
-col_sum = [15 18 21]
-row_sum = [9; 18; 27]
-```
+<img width="674" alt="2 projects" src="https://github.com/user-attachments/assets/daec9c73-e2be-4b2f-b3e2-934169101bbb" />
 
-### 3. Finding Min and Max Elements
-```matlab
-% Column-wise minimum
-min_col = min(C);
-% Minimum of whole matrix
-min_all = min(min(C));
-% Column-wise maximum
-max_col = max(C);
-% Maximum of whole matrix
-max_all = max(max(C));
-```
-**Output:**
-```
-min_col = [2 3 4]
-min_all = 2
-max_col = [8 9 10]
-max_all = 10
-```
+<img width="678" alt="1 tasks" src="https://github.com/user-attachments/assets/0f123eb0-75d9-4284-8164-3b8adc412578" />
 
-### 4. Accessing Matrix Elements
-```matlab
-% Accessing specific elements
-second_element = C(2);
-first_row = C(1,:);
-first_column = C(:,1);
-last_element_first_row = C(1,end);
-```
-**Output:**
-```
-second_element = 5
-first_row = [2 3 4]
-first_column = [2; 5; 8]
-last_element_first_row = 4
-```
+## 2. Create an endpoint to retrieve all tasks associated with a specific project ID.
+     
+Endpoint: GET /project/{projectId}/tasks
 
-### 5. Matrix Addition, Subtraction, and Multiplication
-```matlab
-A = [1 2 3 4;5 6 7 8;9 10 11 12;13 14 15 16];
-B = A; % Duplicate matrix
+<img width="675" alt="Q2" src="https://github.com/user-attachments/assets/cbfb9094-fde8-457c-a165-b95086653fb7" />
 
-% Element-wise Addition and Subtraction
-sum_matrix = A + B;
-diff_matrix = A - B;
+## 3. Create an endpoint to retrieve the manager of a given project ID. Return only the 
+project name, manager name, and email address.
 
-% Matrix Multiplication
-prod_matrix = A * B;
-```
-**Output:**
-```
-sum_matrix =
-  2  4  6  8
- 10 12 14 16
- 18 20 22 24
- 26 28 30 32
+Endpoint: GET /project/{projectId}/manager
 
-diff_matrix =
-  0  0  0  0
-  0  0  0  0
-  0  0  0  0
-  0  0  0  0
+<img width="675" alt="q3" src="https://github.com/user-attachments/assets/723b365a-1783-4020-b0b8-680860ebdcb2" />
 
-prod_matrix =
-  90  100  110  120
- 202  228  254  280
- 314  356  398  440
- 426  484  542  600
-```
+## 4. Create an endpoint to retrieve the tasks and the users they are assigned to for a 
+specific project ID. The result should contain only the task name and user name.
 
-### 6. Conditional Statements
-```matlab
-num = 4;
-if num > 0
-    disp('The Number Is Positive')
-else
-    disp('The Number Is Negative')
-end
-```
-**Output:**
-```
-The Number Is Positive
-```
+Endpoint: GET /project/{projectId}/tasks-users
 
-### 7. Checking Odd or Even Number
-```matlab
-if mod(num,2) == 0
-    disp('The Number Is Even')
-else
-    disp('The Number Is Odd')
-end
-```
-**Output:**
-```
-The Number Is Even
-```
+<img width="671" alt="Q4" src="https://github.com/user-attachments/assets/d75c4705-c918-4ef8-b79d-b067095fdd51" />
 
-### 8. While Loop: Printing Numbers 1 to 5
-```matlab
-a = 1;
-while a <= 5
-    disp (a)
-    a = a + 1;
-end
-```
-**Output:**
-```
-1
-2
-3
-4
-5
-```
+## 5. Ensure your API handles errors gracefully and returns appropriate HTTP status codes.
 
-## How to Run the Scripts
-1. Open MATLAB.
-2. Copy and paste the desired script into the MATLAB command window or save it as a `.m` file and run it.
-3. Observe the output in the command window.
+<img width="960" alt="Q5" src="https://github.com/user-attachments/assets/c0c12bc4-b07f-4133-a947-366486d5310a" />
 
-## Conclusion
-These MATLAB scripts demonstrate fundamental concepts such as arithmetic operations, matrix manipulation, conditional statements, and loops. They serve as an excellent introduction to MATLAB programming.
-
-
+## 6. Include validation for the request parameters where necessary.
