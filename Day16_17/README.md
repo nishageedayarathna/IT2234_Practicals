@@ -1,176 +1,72 @@
-# MATLAB Code Repository
+## Employee App
 
-This repository contains various MATLAB scripts demonstrating basic mathematical operations, matrix manipulations, and control structures such as loops and conditionals.
+npm init-->npm install express-->npm install nodemon-->npm install mongoose
 
-## Requirements
-- MATLAB application is required to run these scripts.
+<img width="960" alt="12" src="https://github.com/user-attachments/assets/ad20a82e-116d-4c83-9a16-ca47f195963c" />
 
-## Included MATLAB Scripts
+<img width="960" alt="13" src="https://github.com/user-attachments/assets/a8b6d90a-e3e0-4439-841e-ab19352c0355" />
 
-### 1. Basic Arithmetic Operations
-```matlab
-% Define variables
-a = 5;
-b = 10;
+change the "scripts" in package.json to "start":"nodemon index.js"
 
-% Addition
-c = a + b;
-% Multiplication
-d = a * b;
-% Division
-e = a / b;
-% Subtraction
-f = a - b;
-```
-**Output:**
-```
-c = 15
-d = 50
-e = 0.5000
-f = -5
-```
+## Outputs:
 
-### 2. Matrix Creation and Operations
-```matlab
-% Define Matrices
-A = [1 2 3];
-B = [4;5;6];
-C = [2 3 4;5 6 7;8 9 10];
+## Department Route
 
-% Size of matrix
-size_C = size(C);
-% Sum of matrix elements
-sum_C = sum(sum(C));
-% Column-wise and row-wise sums
-col_sum = sum(C,1);
-row_sum = sum(C,2);
-```
-**Output:**
-```
-size_C = [3 3]
-sum_C = 54
-col_sum = [15 18 21]
-row_sum = [9; 18; 27]
-```
+(01)Get all department details.
 
-### 3. Finding Min and Max Elements
-```matlab
-% Column-wise minimum
-min_col = min(C);
-% Minimum of whole matrix
-min_all = min(min(C));
-% Column-wise maximum
-max_col = max(C);
-% Maximum of whole matrix
-max_all = max(max(C));
-```
-**Output:**
-```
-min_col = [2 3 4]
-min_all = 2
-max_col = [8 9 10]
-max_all = 10
-```
+<img width="675" alt="1 dept" src="https://github.com/user-attachments/assets/bdaf8279-3b3a-48ab-8e60-fbff09a92306" />
 
-### 4. Accessing Matrix Elements
-```matlab
-% Accessing specific elements
-second_element = C(2);
-first_row = C(1,:);
-first_column = C(:,1);
-last_element_first_row = C(1,end);
-```
-**Output:**
-```
-second_element = 5
-first_row = [2 3 4]
-first_column = [2; 5; 8]
-last_element_first_row = 4
-```
+(02)Give a dept id and get the employees who are working there.
 
-### 5. Matrix Addition, Subtraction, and Multiplication
-```matlab
-A = [1 2 3 4;5 6 7 8;9 10 11 12;13 14 15 16];
-B = A; % Duplicate matrix
+<img width="679" alt="4 emp_did" src="https://github.com/user-attachments/assets/b259aba1-231a-4300-bc06-7e4f51cc0728" />
 
-% Element-wise Addition and Subtraction
-sum_matrix = A + B;
-diff_matrix = A - B;
+(03)Find how many employees are working in a department / Shows the employee count along with each deapartment details .
 
-% Matrix Multiplication
-prod_matrix = A * B;
-```
-**Output:**
-```
-sum_matrix =
-  2  4  6  8
- 10 12 14 16
- 18 20 22 24
- 26 28 30 32
+<img width="672" alt="5 dept_empcount" src="https://github.com/user-attachments/assets/507c9d1e-3db1-470a-818b-8cadcffb8a15" />
 
-diff_matrix =
-  0  0  0  0
-  0  0  0  0
-  0  0  0  0
-  0  0  0  0
+## Employee Route
 
-prod_matrix =
-  90  100  110  120
- 202  228  254  280
- 314  356  398  440
- 426  484  542  600
-```
+(01)Get all employee details.
 
-### 6. Conditional Statements
-```matlab
-num = 4;
-if num > 0
-    disp('The Number Is Positive')
-else
-    disp('The Number Is Negative')
-end
-```
-**Output:**
-```
-The Number Is Positive
-```
+<img width="655" alt="2 employee" src="https://github.com/user-attachments/assets/307ee449-e97e-4058-af08-32506456d80b" />
 
-### 7. Checking Odd or Even Number
-```matlab
-if mod(num,2) == 0
-    disp('The Number Is Even')
-else
-    disp('The Number Is Odd')
-end
-```
-**Output:**
-```
-The Number Is Even
-```
+(02)Get project counts with employees.
 
-### 8. While Loop: Printing Numbers 1 to 5
-```matlab
-a = 1;
-while a <= 5
-    disp (a)
-    a = a + 1;
-end
-```
-**Output:**
-```
-1
-2
-3
-4
-5
-```
+<img width="673" alt="6 emp_procount" src="https://github.com/user-attachments/assets/5e3b89f8-521c-43cf-8bee-d88a9b7737f3" />
 
-## How to Run the Scripts
-1. Open MATLAB.
-2. Copy and paste the desired script into the MATLAB command window or save it as a `.m` file and run it.
-3. Observe the output in the command window.
+(03)Get project names along with employee details.
 
-## Conclusion
-These MATLAB scripts demonstrate fundamental concepts such as arithmetic operations, matrix manipulation, conditional statements, and loops. They serve as an excellent introduction to MATLAB programming.
+<img width="659" alt="7 distinctprojects" src="https://github.com/user-attachments/assets/32b299b6-2244-461f-aaad-5b2912338da2" />
+
+(04)Get the distinct postions of employees.
+
+<img width="662" alt="8 distinctpositions" src="https://github.com/user-attachments/assets/6d7f956b-7ebb-4070-bef2-ebd70428f790" />
+
+(05)along with distinct postions, show how many employees hold that postion.
+
+like Enigeers:2 , HR:1
+
+<img width="676" alt="9 emp_positions_count" src="https://github.com/user-attachments/assets/0f3ed10b-c277-45fe-86f3-ad6c64e133d9" />
+
+(06)find employees who are an engineer or software engineer.
+
+<img width="675" alt="10 engineers" src="https://github.com/user-attachments/assets/297b8dda-a8be-4b1f-ac4f-3210216e7234" />
+
+## Project Route
+
+(01)Get all project detals.
+
+<img width="676" alt="3 project" src="https://github.com/user-attachments/assets/850fcda4-ce25-40de-995a-d5fe43ca526d" />
+
+(02)Show the employee names alongwith each project.
+
+<img width="658" alt="11 withemployees" src="https://github.com/user-attachments/assets/6e98bb18-cf5a-4d48-b12f-aa016e497261" />
+
+
+
+
+
+
+
 
 
